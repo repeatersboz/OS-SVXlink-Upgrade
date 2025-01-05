@@ -1,0 +1,16 @@
+[Unit]
+Description=RTRXLED
+After=multi-user.target
+After=dev-gpiomem.device
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/repeater/rtrxled
+User=root
+Group=root
+#StandardOutput=append:/var/log/rtrxled.log
+#StandardError=append:/var/log/rtrxled_error.log
+
+[Install]
+WantedBy=multi-user.target
+
