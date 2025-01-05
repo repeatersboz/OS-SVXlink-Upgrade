@@ -1,0 +1,72 @@
+#!/bin/bash
+
+      gpioportled=13
+      service=svxlink
+      checkintup=60
+      checkintdown=1
+
+##### GPIO Config
+    echo "$gpioportled" > /sys/class/gpio/export
+    echo "out" > /sys/class/gpio/gpio$gpioportled/direction
+
+#### Initial check
+     running=$(systemctl status $service)
+  if [[ "$running" == *"running"* ]]
+   then
+    echo "1" > /sys/class/gpio/gpio$gpioportled/value
+      status="up"
+  else
+    echo "0" > /sys/class/gpio/gpio$gpioportled/value
+  while :
+   do
+     running=$(systemctl status $service)
+  if [[ "$running" == *"running"* ]]
+   then
+    echo "1" > /sys/class/gpio/gpio$gpioportled/value
+      status="up"
+     break
+  fi
+     sleep $checkintdown
+  done
+    echo "0" > /sys/class/gpio/gpio$gpioportled/value
+      status="down"
+  fi
+
+#### Check loop
+  while :
+   do
+
+### Running
+     running=$(systemctl status $service)
+  if [[ "$running" == *"running"* ]]
+   then
+  if [ "$status" != "up" ]
+   then
+      status="up"
+    echo "1" > /sys/class/gpio/gpio$gpioportled/value
+  fi
+  fi
+     sleep $checkintup
+
+### Not running
+     running=$(systemctl status $service)
+  if [[ "$running" != *"running"* ]]
+   then
+  if [ "$status" != "down" ]
+   then
+      status="down"
+    echo "0" > /sys/class/gpio/gpio$gpioportled/value
+  fi
+  while :
+   do
+      running=$(systemctl status $service)
+  if [[ "$running" == *"running"* ]]
+   then
+      break
+  fi
+     sleep $checkintdown
+  done
+  fi
+
+  done
+
