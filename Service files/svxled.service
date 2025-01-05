@@ -1,0 +1,15 @@
+[Unit]
+Description=SVXLED
+After=multi-user.target
+After=dev-gpiomem.device
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/repeater/svxled
+User=root
+Group=root
+#StandardOutput=append:/var/log/svxled.log
+#StandardError=append:/var/log/svxled_error.log
+
+[Install]
+WantedBy=multi-user.target
