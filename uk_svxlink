@@ -1,0 +1,9 @@
+#!/bin/bash
+
+### UptimeKuma | Check if svxlink is running
+
+     check=$(pidof svxlink)
+  if [ ! "$check" = "" ]
+   then
+     curl --silent <Hearbeat URL here>
+  fi
