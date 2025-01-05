@@ -1,1 +1,1 @@
-Deze repo begeleidt het upgraden van de OS'en en SVXlink voor PI2BOZ 70cm, PI2BOZ 10m enb PI3BOZ 2m.
+Deze repo begeleidt het upgraden van de besturingssystemen en SVXLink voor PI2BOZ 70 cm, PI2BOZ 10 m en PI3BOZ 2 m.
