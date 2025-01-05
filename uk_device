@@ -1,7 +1,3 @@
 #!/bin/bash
 
-##########################################
-# UptimeKuma | Heartbeat for this device #
-##########################################
-
-     curl --silent <hb url>
+     curl --silent <Hearbeat URL here>
