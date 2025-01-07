@@ -1,4 +1,4 @@
-# **Upgrade repeaters**
+# **Upgrade analoge repeaters**
 
 Deze repo begeleidt het upgraden van de besturingssystemen en SVXlink voor PI2BOZ 70cm, PI2BOZ 10m en PI3BOZ 2m en alle servers.
 
@@ -13,4 +13,4 @@ Deze repo begeleidt het upgraden van de besturingssystemen en SVXlink voor PI2BO
 
 ------------
 ## **Teamspeak**
-- De analoge repeaters zullen aan Teamspeak worden gelinkt.
+- De repeaters zullen aan Teamspeak worden gelinkt.
